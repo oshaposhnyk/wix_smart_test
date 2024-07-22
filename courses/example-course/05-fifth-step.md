@@ -119,7 +119,7 @@ In order to keep things simple and avoid adding code to the server side, we will
 
 ![Add Element](/images/platform-api/image8.png)
 
-![All Elements](/images/platform-api/image9.png)
+<img src="/images/platform-api/image9.png">
 
 ### Header Action
 
