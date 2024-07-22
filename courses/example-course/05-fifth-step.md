@@ -57,7 +57,7 @@ In the example above you see how to reach the *AddPost* screen directly while re
 
 >3. Now launch your admin project and click on the **Plus** tab.
 
-<img src="/images/platform-api/image1.png">
+<img name="test_img" src="/images/platform-api/image1.png">
 
 >4. After clicking on the button, you should be prompted with the Quick Actions:
 
