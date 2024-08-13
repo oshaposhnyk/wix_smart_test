@@ -8,7 +8,7 @@ override def getWishlistOwnerDetailed(request: GetWishlistOwnerDetailedRequest)(
 
 ![Title](/courses/example-course/test_testing_optical_265619.jpg)
 
-:smiley:
+::smiley::
 :smiley:
 :smiley: іва
 :3rd_place_medal:
