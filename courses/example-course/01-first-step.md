@@ -11,7 +11,7 @@ override def getWishlistOwnerDetailed(request: GetWishlistOwnerDetailedRequest)(
 :smiley:
 :smiley:
 :smiley: іва
-
+:3rd_place_medal:
 </details>
 
 ### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
