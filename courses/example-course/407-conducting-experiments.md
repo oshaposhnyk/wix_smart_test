@@ -1,5 +1,5 @@
 # How to create and conduct Experiments
-
+😃 😃
 An experiment is a method of modifying a system's behavior based on context. In a lot of cases, we will use experiments before releasing a new feature. That allows us to get feedback and statistics.
 
 ### We use 2 types of experiments:
