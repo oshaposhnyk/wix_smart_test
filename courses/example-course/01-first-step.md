@@ -10,7 +10,7 @@ override def getWishlistOwnerDetailed(request: GetWishlistOwnerDetailedRequest)(
 
 :smiley:
 :smiley:
-:smiley:
+:smiley: іва
 
 </details>
 
