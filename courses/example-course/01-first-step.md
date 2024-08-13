@@ -14,7 +14,7 @@ override def getWishlistOwnerDetailed(request: GetWishlistOwnerDetailedRequest)(
 :3rd_place_medal:
 :smile:
 </details>
-
+sdfs
 ### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
 
 This is HTML abbreviation example.
