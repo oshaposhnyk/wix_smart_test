@@ -4,6 +4,7 @@ An experiment is a method of modifying a system's behavior based on context. In 
 
 ### We use 2 types of experiments:
 
+<img name="test.png" src="/images/image1.png">
 - [Feature toggle](https://www.optimizely.com/optimization-glossary/feature-toggle/) - a mechanism that allows code to be turned “on” or “off” remotely without the need for a deploy. Feature toggles are commonly for canary releases (validate new software by releasing software to a small percentage of users) and continuous deployment.
 - [A/B Testing](https://www.optimizely.com/optimization-glossary/ab-testing/) - comparing two versions against each other to determine which one performs better. A/B tests help PMs to collect data on user behavior before making decisions.
 
