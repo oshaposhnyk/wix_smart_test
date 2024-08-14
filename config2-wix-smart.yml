@@ -22,7 +22,7 @@ sections:
         content: courses/example-course/02-second-step.md
       - ID: A3
         title: Step 3 - Generate Scala Nile project
-        content: courses/example-course/03-third-step.md
+        content: courses/example-course/Batch_prediction_models.md
       - ID: A4
         title: Step 4 - Get your code to master branch
         content: courses/example-course/04-fourth-step.md
