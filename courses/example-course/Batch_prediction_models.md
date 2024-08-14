@@ -34,7 +34,6 @@ _**LAST UPDATED:** 2/6/2024, by [Ran Yahalom](https://wix.slack.com/archives/D02
 
 # How does batch prediction work?
 👉 The following diagram illustrates the most common two stages of batch prediction - a one-time setup, and a recurring scheduled batch prediction flow:
-![how_does_batch_prediction_work.png](ml-platform-course/05_Offline_Models/how_does_batch_prediction_work.png)
 
 ⚠️ NOTE: Learning to automate scheduled tasks with Airflow (step 4 of stage 1 and steps 1,2,3 and 11 of stage 2) is out of scope for this lesson. Similarly, you do not need to know the bits and bytes of the ML platform architecture that implements a batch prediction job (step 4 of stage 2). Nonetheless, you should be at least broadly familiar with these concepts as they will clarify different aspects of your work with batch prediction (e.g. configuration or troubleshooting).   
 
@@ -64,10 +63,8 @@ _**LAST UPDATED:** 2/6/2024, by [Ran Yahalom](https://wix.slack.com/archives/D02
 # Setting up a Batch Config via the ML platform UI
 👉 To configure your offline model for batch prediction via the ML platform UI, follow these steps:
 1. Go to the BUILDS tab in your model's overview page, find the successful build you wish to configure for batch prediction in the list and click its vertical ellipsis ("⋮"):
-   ![img.png](model_deployment.png)
 
 2. Click "Set Batch Config" to open the "Batch Config Build" modal:
-   ![img.png](batch_config_modal.png)
    Fill in the following fields:
     - Deployment Name: choose a name that will help you to identify your batch configuration.
     - Instance type: the machine type you chose to use in the pre-configuration test step.
@@ -76,13 +73,11 @@ _**LAST UPDATED:** 2/6/2024, by [Ran Yahalom](https://wix.slack.com/archives/D02
       - Environment variables: key-value pairs that will be set as environment variables during model runs so that you can use in your model code. Only CAPS and underscore characters are allowed. An example can be a variable defining the debug mode which your code can use to print out some additional information only when debugging.
 
 👉 After you click the "Deploy" button, the configuration you created will be set as the "active batch configuration" for the build you chose and the "Used in Batch" indicator will be shown:
-   ![img.png](used_in_batch_indicator.png)
 
 ⚠️ NOTE: Setting up a batch configuration only saves the configuration you provided, so that it can later be used when you trigger a batch prediction process. It does not deploy or run your model!!!
 
 # Triggering a batch prediction model
 👉 Once your model has an active batch configuration, you can trigger a batch prediction job by providing the names of your input and output tables in the PREDICT tab of your model's overview page, and clicking on the "Trigger Batch Job" button:
-   ![img.png](trigger_batch_prediction_via_ui.png)
 
 👉 You can also trigger a batch prediction job using the `wixml_clients` libray (version >= 1.0.9) as described [here](https://wix-data-science.wixanswers.com/kb/en/article/how-to-use-batch-prediction-transformation#batch-prediction-triggering-via-wixml) or simply using the [`invoke_batch_predict_model()`](https://github.com/wix-private/ds-general/blob/860cec031b46cd69f4a9d0659f380358370784fa/wixml-extensions/wixml_extensions/mlflow.py#L150) helper function from the `wixml_extensions` package as follows:
 ```python
@@ -139,7 +134,6 @@ def run_batch_predict_flow(model_instance: BatchPredictTransformationModel):
 # Monitoring a batch prediction job
 ## Batch Job Details screen
 👉 Batch prediction jobs are exposed via the ML platform UI. You can easily see the details for your batch job by clicking on your batch job in the [Batch Jobs Board](https://wix-data-science.wixanswers.com/en/article/batch-jobs-overview-wip) page:
-   ![bath_job_details.png](/ml-platform-course/05_Offline_Models/batch_job_details.png)
 
 ## Model Log
 👉 If your model prints messages to the standard output, you can inspect them in the batch job's CloudWatch log. You can find this log as follows:
@@ -156,11 +150,8 @@ def run_batch_predict_flow(model_instance: BatchPredictTransformationModel):
 # Troubleshooting
 👉 To troubleshoot a failed batch prediction job, you need to find its _job ID_ in any of the following:
    - Batch prediction Airflow DAG log:
-   ![img.png](find_failed_batcprediction_job_id_from_airflow_log.png)
    - Local dev environment console output:
-   ![img.png](find_failed_batcprediction_job_id_from_wixml_client_output.png)
    - The [Batch Jobs Board](https://bo.wix.com/ml-platform/batch) in the ML platform UI:
-   ![img.png](find_failed_batcprediction_job_id_from_ml_platform_ui.png)
    - Using the [batch prediction job start](https://bo.wix.com/bi-catalog-webapp/#/sources/97/events/402?artifactId=com.wixpress.bi.batch-predictor-web) BI event (keeping in mind there is a 15 min. delay for events to be available via Quix):
 ```sql
 select 
@@ -180,10 +171,8 @@ where
     model_id = 'ds-premium-fraud-detection'
 order by date_created desc
 ```
-![img.png](find_failed_batcprediction_job_id_from_bi_event.png)
 
 👉 Next, find & click your job ID in the [Batch Jobs Board](https://bo.wix.com/ml-platform/batch) of the ML platform UI. Click the "Show More" in the red "Batch Job Message" panel to see the error message and a link to the relevant CloudWatch logs where you can further inspect messages logged on the Sagemaker instances, including your own code's messages:
-![img.png](faild_batch_prediction_job_cloud_watch_logs.png)
 
    ⚠️ NOTE: you need to be logged into AWS in order to access the CloudWatch logs. Do this as described in the [Model Log](https://github.com/wix-private/ds-ml-models/blob/master/ml-platform-course/05_Offline_Models/Batch_prediction_models.md#model-log) section above.  
 
@@ -194,7 +183,6 @@ from events.dbo.sites_97
 where job_id = 'f2d2f9cf-2a72-4abe-ae74-f962a7b70a51'
 and error is not null
 ```
-  ![img.png](inspect_batch_predictor_job_failed_bi_event.png)
 
 # When should I prefer triggering my offline model directly instead of batch prediction via ML platform?
 👉 If you want to invoke your offline model periodically on a relatively **SMALL** dataset which doesn't require splitting into smaller batches, you should consider instantiating your model and calling its `predict()` method directly from your code instead of using batch prediction.
