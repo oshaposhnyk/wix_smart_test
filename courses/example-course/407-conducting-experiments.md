@@ -43,8 +43,6 @@ In OneApp, we use [Petri](https://bo.wix.com/petri/) to conduct our experiments.
    7. In addition, you can add Filters to target specific user groups. 
       > For example, if we would like to open an experiment only for iOS users in version 1.2.3 and above we will set:
 
-<img src="/images/filters.png">
-
 - Note that you have to be under Wix wifi or VPN to access it. If the New User Manager does not load - you don't have permission. In that case, create a Jira ticket to IT project and ask for access. Add your manager and upper manager to the ticket for approval (required). If you want to avoid this, you can set the audience to wix employees.
 
 ### **Third**, your feature code by an experiment spec 
@@ -66,11 +64,7 @@ For that, we have the Dev-tools in orange versions. There you can find some usef
 
 So to control feature toggles and verify that your feature toggle is there, open the orange version app on your phone, go to the Dev-tools tab and open the Experiments Manager.
 
-<img src="/images/dev-tools.png" width="25%">
-
 Now you can manage all open feature toggles and turn them as you want. Search for your spec name as you defined before and verify that you can use it.
-
-<img src="/images/experimets-manager.png" width="25%">
 
 ### How to add Dev Utils to your module
 
